@@ -1,0 +1,32 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main  # Trigger the workflow on pushes to the 'main' branch.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22' # Use your project's Node.js version
+
+      # Step 4: Build the site
+      - name: Build the Site
+        run: node build.js
+
+      # Step 5: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public  # The folder containing the built site
