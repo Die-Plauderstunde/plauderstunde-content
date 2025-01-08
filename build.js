@@ -1,10 +1,18 @@
 const fs = require('fs')
 
-const discussionTopicsDir = './discussion-topics'
+const discussionTopicsDir = 'content/topics'
+const debateFilePath = 'content/prompts/debate.txt'
 
 function main() {
     const topics = fs.readdirSync(discussionTopicsDir).filter(path => isTopicFile(path)).map(path => parseTopic(path))
-    fs.writeFileSync('public/topics.json', JSON.stringify(topics, null, 4))
+    const debate = fs.readFileSync(debateFilePath).toString()
+    const contentJson = {
+        topics,
+        prompts: {
+            debate
+        }   
+    }
+    fs.writeFileSync('public/content.json', JSON.stringify(contentJson, null, 4))
 }
 
 function isTopicFile(fileName) {
