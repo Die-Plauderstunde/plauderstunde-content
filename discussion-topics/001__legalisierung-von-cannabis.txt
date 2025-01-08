@@ -1,7 +1,5 @@
 # Legalisierung von Cannabis
 
-## Prompt
-
 Ein Reformvorschlag sieht eine Legalisierung von Cannabisprodukten – Marihuana und
 Haschisch in verschiedenen Formen – vor. Ab 2024 stellt der Staat Lizenzen an geprüfte
 Unternehmen aus, die Cannabis anbauen und verkaufen dürfen. Für Privatpersonen ist
